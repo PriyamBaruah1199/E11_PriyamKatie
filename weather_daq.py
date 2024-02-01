@@ -13,14 +13,11 @@ print(start)
 print("")
 
 while time.time() <= (start + 10):
-	print("\nTemperature: %0.1f C" % bme680.temperature)
-	print("Gas: %d ohm" % bme680.gas)
-	print("Humidity: %0.1f %%" % bme680.relative_humidity)
-	print("Pressure: %0.3f hPa" % bme680.pressure)
-	print("Altitude = %0.2f meters" % bme680.altitude)
-	
 	now = time.time() - start
-	print(now, " seconds have passed")
+	print(now, " seconds have passed","Temperature: %0.1f C" % bme680.temperature,"Gas: %d ohm" % bme680.gas,"Humidity: %0.1f %%" % bme680.relative_humidity,"Pressure: %0.3f hPa" % bme680.pressure,"Altitude = %0.2f meters" % bme680.altitude)
+
+	
+	
 	
 	
 	time.sleep(2)
