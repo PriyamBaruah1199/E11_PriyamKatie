@@ -52,7 +52,7 @@ meta_data = ["Time", "PM10","PM25","PM100"]
 file = open("air_quality_data.csv","w",newline='')
 
 data_writer = csv.writer(file)
-data_writerrow(meta_data)
+data_writer.writerow(meta_data)
 
 print("Found PM2.5 sensor, reading data...")
 start = time.time()
