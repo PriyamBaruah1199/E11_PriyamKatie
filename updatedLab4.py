@@ -69,6 +69,7 @@ while time.time() <= (start+10):
         # print(aqdata)
         data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
         data_writer.writerow(data)
+        print(data)
         time.sleep(2)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
