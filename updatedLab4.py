@@ -13,6 +13,7 @@ from digitalio import DigitalInOut, Direction, Pull
 from adafruit_pm25.i2c import PM25_I2C
 from datetime import datetime
 
+
 reset_pin = None
 # If you have a GPIO, its not a bad idea to connect it to the RESET pin
 # reset_pin = DigitalInOut(board.G0)
@@ -45,6 +46,13 @@ pm25 = PM25_UART(uart, reset_pin)
 # Connect to a PM2.5 sensor over I2C
 #pm25 = PM25_I2C(i2c, reset_pin)
 
+
+meta_data = ["Time", "PM10","PM25","PM100"]
+file = open("air_quality_data.csv","w",newline='')
+
+data_writer = csv.writer(file)
+data_writerrow(meta_data)
+
 print("Found PM2.5 sensor, reading data...")
 start = time.time()
 now = time.time()
@@ -54,11 +62,13 @@ while time.time() <= (start+10):
     dt = datetime.now()
     ts = datetime.timestamp(dt)
     print("Timestamp is",ts)
-    time.sleep(5)
 
     try:
         aqdata = pm25.read()
         # print(aqdata)
+        data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
+        data_writer.writerow(data)
+        time.sleep(2)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
