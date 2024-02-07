@@ -55,7 +55,7 @@ while time.time() <= (start+10):
     dt = datetime.now()
     ts = datetime.timestamp(dt)
     print("Timestamp is",ts)
-    time.sleep(1)
+    time.sleep(5)
 
     try:
         aqdata = pm25.read()
