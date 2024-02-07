@@ -46,10 +46,11 @@ pm25 = PM25_UART(uart, reset_pin)
 #pm25 = PM25_I2C(i2c, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
-dt = datetime.now()
-ts = datetime.timestamp(dt)
+
 
 while True:
+    dt = datetime.now()
+    ts = datetime.timestamp(dt)
     print("Timestamp is",ts)
     time.sleep(1)
 
