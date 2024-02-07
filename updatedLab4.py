@@ -11,7 +11,7 @@ import board
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 from adafruit_pm25.i2c import PM25_I2C
-
+from datetime import datetime
 
 reset_pin = None
 # If you have a GPIO, its not a bad idea to connect it to the RESET pin
@@ -46,8 +46,11 @@ pm25 = PM25_UART(uart, reset_pin)
 #pm25 = PM25_I2C(i2c, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
+dt = datetime.now()
+ts = datetime.timestamp(dt)
 
 while True:
+    print("Timestamp is",ts)
     time.sleep(1)
 
     try:
