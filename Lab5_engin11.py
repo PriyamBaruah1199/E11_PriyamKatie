@@ -40,7 +40,7 @@ while (now-start_time) < run_time:
         data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
         datalist = [now,data]
         dwriter.writerow(datalist)
-        data_writer.writerow(data)
+        dwriter.writerow(data)
         print(data)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
