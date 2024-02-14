@@ -24,23 +24,24 @@ now = start_time
 
 filename = "time_data.csv"
 filename = sys.argv[2]
-file = open(filename,"w",newline='')
+file = open("combined_data.csv","w",newline='')
 dwriter = csv.writer(file)
 
-meta_data = ["Time","Data"]
+meta_data = ["Time", "PM10","PM25","PM100"]
 dwriter.writerow(meta_data)
 print(meta_data)
 
 while (now-start_time) < run_time:
     time.sleep(1)
-    data=random.random()
     now = time.time()
     datalist = [now,data]
     dwriter.writerow(datalist)
     
     try:
         aqdata = pm25.read()
-        # print(aqdata)
+        data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
+        data_writer.writerow(data)
+        print(data)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
