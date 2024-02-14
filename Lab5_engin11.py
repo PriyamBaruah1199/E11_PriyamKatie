@@ -2,7 +2,7 @@ import sys
 import random
 import time
 import csv
-
+import adafruit_bme680
 import board
 import busio 
 from digitalio import DigitalInOut, Direction, Pull
@@ -13,6 +13,10 @@ import serial
 uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
 from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
+# Create sensor object
+i2c = board.I2C() # Uses board.SCL and board.SDA
+bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c)
+bme680.sea_level_pressure = 1013.25 
 
 print("Found PM2.5 sensor, reading data...")
 print(sys.argv)
@@ -34,6 +38,8 @@ print(meta_data)
 while (now-start_time) < run_time:
     time.sleep(1)
     now = time.time()
+    
+    print(now, " seconds have passed","Temperature: %0.1f C" % bme680.temperature,"Gas: %d ohm" % bme680.gas,"Humidity: %0.1f %%" % bme680.relative_humidity,"Pressure: %0.3f hPa" % bme680.pressure,"Altitude = %0.2f meters" % bme680.altitude)
     
     try:
         aqdata = pm25.read()
