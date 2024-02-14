@@ -31,13 +31,13 @@ dwriter.writerow(meta_data)
 print(meta_data)
 
 while (now-start_time) < run_time:
-  time.sleep(1)
-  data=random.random()
-  now = time.time()
-  datalist = [now,data]
-  dwriter.writerow(datalist)
-
-  try:
+    time.sleep(1)
+    data=random.random()
+    now = time.time()
+    datalist = [now,data]
+    dwriter.writerow(datalist)
+    
+    try:
         aqdata = pm25.read()
         # print(aqdata)
     except RuntimeError:
