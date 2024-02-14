@@ -34,11 +34,11 @@ print(meta_data)
 while (now-start_time) < run_time:
     time.sleep(1)
     now = time.time()
-    datalist = [now,data]
-    dwriter.writerow(datalist)
     
     try:
         aqdata = pm25.read()
+        datalist = [now,data]
+        dwriter.writerow(datalist)
         data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
         data_writer.writerow(data)
         print(data)
