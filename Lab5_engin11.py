@@ -37,9 +37,9 @@ while (now-start_time) < run_time:
     
     try:
         aqdata = pm25.read()
+        data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
         datalist = [now,data]
         dwriter.writerow(datalist)
-        data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
         data_writer.writerow(data)
         print(data)
     except RuntimeError:
