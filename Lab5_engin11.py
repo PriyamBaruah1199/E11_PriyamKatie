@@ -43,7 +43,7 @@ while (now-start_time) < run_time:
     
     try:
         aqdata = pm25.read()
-        data = [now,aqdata["pm10 standard"]aqdata["pm25 standard"],aqdata["pm100 standard"],bme680.temperature, bme680.gas, bme680.relative_humidity,bme680.pressure,bme680.altitude]
+        data = [now,aqdata["pm10 standard"],aqdata["pm25 standard"],aqdata["pm100 standard"],bme680.temperature, bme680.gas, bme680.relative_humidity,bme680.pressure,bme680.altitude]
         dwriter.writerow(data)
         print(data)
     except RuntimeError:
