@@ -22,7 +22,7 @@ print("Found PM2.5 sensor, reading data...")
 print(sys.argv)
 
 start_time = time.time()
-run_time = 30
+#run_time = 30
 run_time = int(sys.argv[1])
 now = start_time 
 
@@ -31,7 +31,7 @@ filename = sys.argv[2]
 file = open("combined_data.csv","w",newline='')
 dwriter = csv.writer(file)
 
-meta_data = ["Time", "PM10","PM25","PM100"]
+meta_data = ["Time", "PM10","PM25","PM100","Temperature","Gas","Relative Humidity","Pressure","Altitude"]
 dwriter.writerow(meta_data)
 print(meta_data)
 
@@ -43,9 +43,7 @@ while (now-start_time) < run_time:
     
     try:
         aqdata = pm25.read()
-        data = [now,aqdata["pm25 standard"],aqdata["pm100 standard"]]
-        datalist = [now,data]
-        dwriter.writerow(datalist)
+        data = [now,aqdata["pm10 standard"]aqdata["pm25 standard"],aqdata["pm100 standard"],bme680.temperature, bme680.gas, bme680.relative_humidity,bme680.pressure,bme680.altitude]
         dwriter.writerow(data)
         print(data)
     except RuntimeError:
