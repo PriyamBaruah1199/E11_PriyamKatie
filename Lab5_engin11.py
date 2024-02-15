@@ -28,7 +28,7 @@ now = start_time
 
 filename = "time_data.csv"
 filename = sys.argv[2]
-file = open("combined_data.csv","w",newline='')
+file = open(filename,"w",newline='')
 dwriter = csv.writer(file)
 
 meta_data = ["Time", "PM10","PM25","PM100","Temperature","Gas","Relative Humidity","Pressure","Altitude"]
