@@ -29,7 +29,6 @@ start_time = time.time()
 run_time = int(sys.argv[1])
 now = start_time 
 
-filename = "time_data.csv"
 filename = sys.argv[2]
 file = open(filename,"w",newline='')
 dwriter = csv.writer(file)
