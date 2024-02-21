@@ -35,6 +35,8 @@ meta_data = ["Time", "PM10","PM25","PM100","Temperature","Gas","Relative Humidit
 dwriter.writerow(meta_data)
 print(meta_data)
 
+time.sleep(30)
+
 while (now-start_time) < run_time:
     time.sleep(1)
     now = time.time()
