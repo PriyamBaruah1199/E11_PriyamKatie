@@ -21,6 +21,9 @@ bme680.sea_level_pressure = 1013.25
 print("Found PM2.5 sensor, reading data...")
 print(sys.argv)
 
+
+time.sleep(30)
+
 start_time = time.time()
 #run_time = 30
 run_time = int(sys.argv[1])
@@ -35,7 +38,6 @@ meta_data = ["Time", "PM10","PM25","PM100","Temperature","Gas","Relative Humidit
 dwriter.writerow(meta_data)
 print(meta_data)
 
-time.sleep(30)
 
 while (now-start_time) < run_time:
     time.sleep(1)
