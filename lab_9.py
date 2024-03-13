@@ -14,33 +14,33 @@ import datetime
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
 
-if GPIO.input(channel):
+if GPIO.input(16):
     print('Input was HIGH')
 else:
     print('Input was LOW')
 
-while GPIO.input(channel) == GPIO.LOW:
+while GPIO.input(16) == GPIO.LOW:
     time.sleep(0.01)  # wait 10 ms to give CPU chance to do other things
 
-channel = GPIO.wait_for_edge(channel, GPIO_RISING, timeout=5000)
+channel = GPIO.wait_for_edge(16, GPIO_RISING, timeout=5000)
 if channel is None:
     print('Timeout occurred')
 else:
     print('Edge detected on channel', channel)
 
 
-GPIO.add_event_detect(channel, GPIO.RISING)  # add rising edge detection on a channel
+GPIO.add_event_detect(16, GPIO.RISING)  # add rising edge detection on a channel
 do_something()
-if GPIO.event_detected(channel):
+if GPIO.event_detected(16):
     print('Button pressed')
 
 
-def my_callback(channel):
+def my_callback(16):
     print('This is a edge event callback function!')
     print('Edge detected on channel %s'%channel)
     print('This is run in a different thread to your main program')
 
-GPIO.add_event_detect(channel, GPIO.RISING, callback=my_callback, bouncetime=200)
+GPIO.add_event_detect(16, GPIO.RISING, callback=my_callback, bouncetime=200)
 
-GPIO.remove_event_detect(channel)
+GPIO.remove_event_detect(16)
 
