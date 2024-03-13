@@ -12,7 +12,7 @@ Original file is located at
 import RPi.GPIO as GPIO
 import datetime
 
-GPIO.setup(channel, GPIO.BCM, pull_up_down=GPIO.PUD_DOWN) 
+GPIO.setup(16, GPIO.BCM, pull_up_down=GPIO.PUD_DOWN) 
 
 if GPIO.input(channel):
     print('Input was HIGH')
