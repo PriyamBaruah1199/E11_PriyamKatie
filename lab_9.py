@@ -34,8 +34,7 @@ do_something()
 if GPIO.event_detected(16):
     print('Button pressed')
 
-
-def my_callback(16):
+def my_callback(channel):
     print('This is a edge event callback function!')
     print('Edge detected on channel %s'%channel)
     print('This is run in a different thread to your main program')
