@@ -42,3 +42,6 @@ def my_callback(channel):
     print('This is run in a different thread to your main program')
 
 GPIO.add_event_detect(channel, GPIO.RISING, callback=my_callback, bouncetime=200)
+
+GPIO.remove_event_detect(channel)
+
