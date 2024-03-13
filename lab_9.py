@@ -11,7 +11,7 @@ Original file is located at
 
 import RPi.GPIO as GPIO
 import datetime
-
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
 
 if GPIO.input(channel):
