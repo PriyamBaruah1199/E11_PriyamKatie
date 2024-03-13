@@ -3,7 +3,7 @@ import datetime
 
 GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-if GPIO.input(1l):
+if GPIO.input(1):
     print('Input was HIGH')
 else:
     print('Input was LOW')
