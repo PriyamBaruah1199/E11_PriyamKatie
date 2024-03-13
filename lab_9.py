@@ -11,7 +11,8 @@ Original file is located at
 
 import RPi.GPIO as GPIO
 import datetime
-channel = 16 
+GPIO.setmode(GPIO.BCM)
+channel = 16
 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
@@ -21,8 +22,8 @@ def my_callback(channel):
 
 try:
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(16, GPIO.IN)
-    GPIO.add_event_detect(16, GPIO.BOTH, callback=my_callback)
+    GPIO.setup(channel, GPIO.IN)
+    GPIO.add_event_detect(channel, GPIO.BOTH, callback=my_callback)
 
     message = raw_input('\nPress any key to exit.\n')
 
