@@ -16,6 +16,6 @@ try:
 finally:
     GPIO.cleanup()
 
-my_callback(1)
+my_callback(16)
 
 print("Goodbye!")
