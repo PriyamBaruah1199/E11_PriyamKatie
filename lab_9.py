@@ -32,7 +32,7 @@ else:
 
 GPIO.add_event_detect(channel, GPIO.RISING)  # add rising edge detection on a channel
 do_something()
-if GPIO.event_detected(16):
+if GPIO.event_detected(channel):
     print('Button pressed')
 
 
@@ -41,4 +41,4 @@ def my_callback(channel):
     print('Edge detected on channel %s'%channel)
     print('This is run in a different thread to your main program')
 
-
+GPIO.add_event_detect(channel, GPIO.RISING, callback=my_callback, bouncetime=200)
