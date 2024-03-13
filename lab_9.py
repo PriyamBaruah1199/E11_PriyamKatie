@@ -11,6 +11,7 @@ Original file is located at
 
 import RPi.GPIO as GPIO
 import datetime
+channel = 16 
 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
