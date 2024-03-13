@@ -13,7 +13,7 @@ import RPi.GPIO as GPIO
 import datetime
 channel = 16
 
-GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.BCM) 
+GPIO.BCM(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP) 
 
 if GPIO.input(channel):
     print('Input was HIGH')
