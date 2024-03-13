@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import datetime
 
-GPIO.setup(1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(1, GPIO.BOARD, pull_up_down=GPIO.PUD_UP)
 
 if GPIO.input(1):
     print('Input was HIGH')
