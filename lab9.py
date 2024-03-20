@@ -42,7 +42,7 @@ try:
  
 finally:
     GPIO.cleanup()
-print(counts "counts read")
+print(counts,"counts read")
 print("press enter to exit")
 input()
  
