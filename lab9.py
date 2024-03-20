@@ -4,6 +4,7 @@ import time
 import sys 
 import select 
 
+counts = 0 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
         print('\n▼  at ' + str(datetime.datetime.now()))
@@ -21,7 +22,7 @@ def input_available(timeout):
 try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(16, GPIO.IN)
-    GPIO.add_event_detect(16, GPIO.BOTH, callback=my_callback)
+    GPIO.add_event_detect(16, GPIO.BOTH, callback=my_callback, counts = counts + 1)
 
     timeout = 10  # 2 minutes in seconds
     start_time = time.time()
@@ -41,7 +42,7 @@ try:
  
 finally:
     GPIO.cleanup()
-
+print(counts "counts read")
 print("press enter to exit")
 input()
  
