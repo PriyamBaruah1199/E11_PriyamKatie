@@ -40,8 +40,8 @@ try:
     
     
     message = input('\nPress Enter to exit.\n')
-    break
 
+break
  
 finally:
     GPIO.cleanup()
