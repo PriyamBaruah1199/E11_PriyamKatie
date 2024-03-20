@@ -17,7 +17,7 @@ def input_available(timeout):
     # Check if input is available within the specified timeout
     start_time = time.time()
     # while time.time() - start_time < timeout:
-    run_time = int(sys.argv[2])
+    run_time = int(sys.argv[1])
     while time.time() - start_time < run_time:
         if sys.stdin in select.select([sys.stdin], [], [], timeout)[0]:
             return True
