@@ -8,6 +8,14 @@ def my_callback(channel):
     else:
         print('\n ▲ at ' + str(datetime.datetime.now())) 
 
+def input_available(timeout):
+    # Check if input is available within the specified timeout
+    start_time = time.time()
+    while time.time() - start_time < timeout:
+        if sys.stdin in select.select([sys.stdin], [], [], timeout)[0]:
+            return True
+    return False
+
 try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(16, GPIO.IN)
@@ -22,7 +30,7 @@ try:
             break
 
         # Check for user input to exit
-        if input_available():
+        if input_available(0.1):
             break
 
         # Add a small delay to reduce CPU usage
