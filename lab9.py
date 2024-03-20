@@ -38,12 +38,11 @@ try:
         # Add a small delay to reduce CPU usage
         time.sleep(0.1)
     
-    
-    message = input('\nPress Enter to exit.\n')
-
-break
  
 finally:
     GPIO.cleanup()
+
+print("press enter to exit")
+input()
  
 print("Goodbye!")
