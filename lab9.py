@@ -31,6 +31,7 @@ try:
     timeout = 10  # 2 minutes in seconds
     start_time = time.time()
     run_time = int(sys.argv[1])
+    filename = sys.argv[2]
 
     while time.time() - start_time < run_time:
         # Check if the timeout has been reached
