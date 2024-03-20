@@ -40,6 +40,7 @@ try:
     
     
     message = input('\nPress Enter to exit.\n')
+    break
 
  
 finally:
