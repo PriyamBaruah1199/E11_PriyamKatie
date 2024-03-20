@@ -7,11 +7,8 @@ import select
 counts = 0 
 def my_callback(channel):
     global counts
-    if GPIO.input(channel) == GPIO.HIGH:
-        print('\n▼  at ' + str(datetime.datetime.now()))
-        counts = counts + 1 
-    else:
-        print('\n ▲ at ' + str(datetime.datetime.now())) 
+    print('\n▼  at ' + str(datetime.datetime.now()))
+    counts = counts + 1 
 
 #def input_available(timeout):
     # Check if input is available within the specified timeout
@@ -26,17 +23,16 @@ def my_callback(channel):
 try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(16, GPIO.IN)
-    GPIO.add_event_detect(16, GPIO.BOTH, callback=my_callback)
-
-    timeout = 10  # 2 minutes in seconds
+    GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback)
+ 
     start_time = time.time()
     run_time = int(sys.argv[1])
     filename = sys.argv[2]
 
     while time.time() - start_time < run_time:
         # Check if the timeout has been reached
-        if time.time() - start_time > timeout:
-            break
+        # if time.time() - start_time > timeout:
+            # break
 
         # Check for user input to exit
         # if input_available(0.1):
