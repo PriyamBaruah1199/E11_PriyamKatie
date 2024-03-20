@@ -11,8 +11,8 @@ try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(36, GPIO.IN)
     GPIO.add_event_detect(36, GPIO.BOTH, callback=my_callback)
- 
-   message = input('\nPress Enter to exit.\n')
+    
+    message = input('\nPress Enter to exit.\n')
 
  
 finally:
