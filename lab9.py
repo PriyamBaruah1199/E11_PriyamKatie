@@ -6,6 +6,7 @@ import select
 
 counts = 0 
 def my_callback(channel):
+    global counts
     if GPIO.input(channel) == GPIO.HIGH:
         print('\n▼  at ' + str(datetime.datetime.now()))
         counts = counts + 1 
