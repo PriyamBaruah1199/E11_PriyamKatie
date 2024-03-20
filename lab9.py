@@ -26,7 +26,7 @@ while time.time() - start_time < run_time:
     time.sleep(10)
     print(counts,"counts read")
     data = [counts]
-        dwriter.writerow(data)
+    dwriter.writerow(data)
     counts = 0
     
 
