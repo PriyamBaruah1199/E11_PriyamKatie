@@ -44,8 +44,8 @@ try:
         # Add a small delay to reduce CPU usage
         time.sleep(10)
         print(counts,"counts read")
+        counts = 0
     
- 
 finally:
     GPIO.cleanup()
 # print(counts,"counts read")
