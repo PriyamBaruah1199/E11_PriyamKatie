@@ -23,7 +23,7 @@ try:
     GPIO.setup(16, GPIO.IN)
     GPIO.add_event_detect(16, GPIO.BOTH, callback=my_callback)
 
-    timeout = 20  # 2 minutes in seconds
+    timeout = 10  # 2 minutes in seconds
     start_time = time.time()
 
     while True:
