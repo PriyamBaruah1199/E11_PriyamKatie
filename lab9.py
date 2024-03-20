@@ -4,6 +4,10 @@ import time
 import sys 
 import select 
 
+meta_data = ["Counts","Time Stamp"]
+dwriter.writerow(meta_data)
+print(meta_data)
+
 counts = 0 
 def my_callback(channel):
     global counts
@@ -21,6 +25,8 @@ filename = sys.argv[2]
 while time.time() - start_time < run_time:
     time.sleep(10)
     print(counts,"counts read")
+    data = [counts]
+        dwriter.writerow(data)
     counts = 0
     
 
