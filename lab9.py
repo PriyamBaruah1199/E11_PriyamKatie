@@ -3,7 +3,7 @@ import datetime
 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
-        print('\n▼  at ' + str(datetime.datetime.now())
+        print('\n▼  at ' + str(datetime.datetime.now()))
     else:
         print('\n ▲ at ' + str(datetime.datetime.now())) 
 
