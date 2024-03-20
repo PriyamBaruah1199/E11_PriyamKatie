@@ -1,12 +1,9 @@
 import RPi.GPIO as GPIO
 import datetime
 
-count= 0 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
-        print('\n▼  at ' + str(datetime.datetime.now()))
-        count = count + 1
-        print(count)
+        print('\n▼  at ' + str(datetime.datetime.now())
     else:
         print('\n ▲ at ' + str(datetime.datetime.now())) 
 
