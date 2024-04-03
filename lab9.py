@@ -30,7 +30,7 @@ with open(sys.argv[2], 'w', newline='') as csvfile:
     run_time = int(sys.argv[1])
 
     while time.time() - start_time < run_time:
-        time.sleep(10)
+        time.sleep(30)
         print(counts, "counts read")
         
         # Write the counts and timestamp to the CSV file
