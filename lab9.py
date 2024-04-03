@@ -23,8 +23,8 @@ with open(sys.argv[2], 'w', newline='') as csvfile:
         counts += 1
 
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(16, GPIO.IN)
-    GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback)
+    GPIO.setup(17, GPIO.IN)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=my_callback)
 
     start_time = time.time()
     run_time = int(sys.argv[1])
